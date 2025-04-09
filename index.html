@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="et">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>index.html – Südamega lemmikute eest</title>
+  <title>Lemmikuhoidja Carmen – Südamega lemmikute eest</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,6 +20,17 @@
     header h1 {
       margin: 0;
       font-size: 2.5em;
+    }
+    nav {
+      background-color: #ffddb3;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
     }
     section {
       padding: 20px;
@@ -40,6 +50,18 @@
     .contact {
       font-weight: bold;
     }
+    .contact-button {
+      display: inline-block;
+      background-color: #ffaf66;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+    .contact-button:hover {
+      background-color: #ff9940;
+    }
   </style>
 </head>
 <body>
@@ -48,31 +70,40 @@
     <p>Lemmikutehoid Harjumaal – südamega teenus</p>
   </header>
 
+  <nav>
+    <a href="#teenused">Teenused</a>
+    <a href="#piirkond">Piirkond</a>
+    <a href="#hinnakiri">Hinnakiri</a>
+    <a href="#minust">Minust</a>
+    <a href="#kontakt">Kontakt</a>
+  </nav>
+
   <section>
-    <div class="highlight">
+    <div id="teenused" class="highlight">
       <h2>Teenused</h2>
       <p>Pakun koduhoidu koertele, kassidele ja isegi madudele omaniku enda kodus. Tegelen kõigega, mida lemmik vajab – mäng, tugi, ravimite andmine, valvamine ja hellus.</p>
     </div>
 
-    <div class="highlight">
+    <div id="piirkond" class="highlight">
       <h2>Piirkond</h2>
       <p>Harjumaa</p>
     </div>
 
-    <div class="highlight">
+    <div id="hinnakiri" class="highlight">
       <h2>Hinnakiri</h2>
       <p>Hind oleneb asukohast ja hoiu pikkusest. Küsi personaalset pakkumist!</p>
     </div>
 
-    <div class="highlight">
+    <div id="minust" class="highlight">
       <h2>Minust</h2>
       <p>Olen armastanud loomi juba lapsest saati. Olen hoidnud lemmikuid tuttavatel ja nende tuttavatel. See töö on minu jaoks puhas rõõm ja võimalus olla toeks nii loomale kui ka omanikule. Olgu põhjuseks puhkusereis või ootamatu äraolek – mina olen olemas.</p>
     </div>
 
-    <div class="highlight contact">
+    <div id="kontakt" class="highlight contact">
       <h2>Kontakt</h2>
       <p>Telefon: 5544309<br>
          E-mail: cadementjev@gmail.com</p>
+      <a class="contact-button" href="mailto:cadementjev@gmail.com">Kirjuta mulle</a>
     </div>
   </section>
 
@@ -81,3 +112,4 @@
   </footer>
 </body>
 </html>
+
