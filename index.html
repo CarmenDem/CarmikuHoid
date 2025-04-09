@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="et">
+<html 
+lang="et">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,6 +86,21 @@
       bottom: 10px;
       right: 10px;
     }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #ffb3d9;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #ffe0f0;
+    }
   </style>
   <script>
     function naita(valik) {
@@ -118,22 +134,35 @@
 
   <section id="teenused" class="highlight" style="display: none;">
     <h2>Teenused</h2>
-    <p>Pakun koduhoidu koertele, kassidele ja isegi madudele omaniku enda kodus. Tegelen kõigega, mida lemmik vajab – mäng, tugi, ravimite andmine, valvamine ja hellus.</p>
+    <table>
+      <tr><th>Lemmikloom</th><th>Teenuse tüüp</th></tr>
+      <tr><td>Kassid</td><td>Koduhoid, mängimine, söötmine, paitamine</td></tr>
+      <tr><td>Koerad</td><td>Koduhoid, jalutamine, mäng, söötmine</td></tr>
+      <tr><td>Maod</td><td>Keskkonna jälgimine, vajadusel söötmine, rahulik hool</td></tr>
+      <tr><td>Närilised</td><td>Puuride puhastamine, söötmine, tähelepanu</td></tr>
+    </table>
   </section>
 
   <section id="piirkond" class="highlight" style="display: none;">
     <h2>Piirkond</h2>
-    <p>Harjumaa</p>
+    <p>Harjumaa – Tallinn, Viimsi, Haabersti, Lasnamäe, Mustamäe, Õismäe ja teised lähiümbruse piirkonnad.</p>
   </section>
 
   <section id="hinnakiri" class="highlight" style="display: none;">
     <h2>Hinnakiri</h2>
-    <p>Hind oleneb asukohast ja hoiu pikkusest. Küsi personaalset pakkumist!</p>
+    <table>
+      <tr><th>Asukoht</th><th>Päevahind</th><th>Ööpäev</th><th>Lisainfo</th></tr>
+      <tr><td>Tallinn</td><td>15€</td><td>25€</td><td>-</td></tr>
+      <tr><td>Viimsi</td><td>15€</td><td>25€</td><td>Minu kodupiirkond</td></tr>
+      <tr><td>Harjumaa mujalt</td><td>15€</td><td>25€</td><td>Sõidukulu +5€</td></tr>
+    </table>
+    <p>Küsi personaalset pakkumist pikemaks perioodiks või mitmele loomale korraga!</p>
   </section>
 
   <section id="minust" class="highlight" style="display: none;">
     <h2>Minust</h2>
-    <p>Olen armastanud loomi juba lapsest saati. Olen hoidnud lemmikuid tuttavatel ja nende tuttavatel. See töö on minu jaoks puhas rõõm ja võimalus olla toeks nii loomale kui ka omanikule. Olgu põhjuseks puhkusereis või ootamatu äraolek – mina olen olemas.</p>
+    <p>Olen Carmen ja loomad on olnud minu elu lahutamatu osa juba väiksest peale. Olen kokku puutunud väga erinevate loomadega ja alati leidnud nendega ühise keele. Minu jaoks on loomadega tegelemine suur rõõm – mängimine, paitamine, jalutamine, söötmine ja lihtsalt olemasolemine on minu igapäevane rõõm. 
+    Mul on ka kaks imearmsat kassi – Kitty ja Akiko –, keda ma väga hoian ja armastan. Lemmikute eest hoolitsemine pole minu jaoks lihtsalt töö, vaid südameasi.</p>
   </section>
 
   <section id="kontakt" class="highlight contact" style="display: none;">
