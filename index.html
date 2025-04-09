@@ -7,13 +7,14 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fff8f0;
+      background-color: #ffe6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/paw-print.png');
       color: #333;
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #ffe6cc;
+      background-color: rgba(255, 217, 236, 0.9);
       padding: 20px;
       text-align: center;
     }
@@ -22,7 +23,7 @@
       font-size: 2.5em;
     }
     nav {
-      background-color: #ffddb3;
+      background-color: #ffcce5;
       padding: 10px;
       text-align: center;
     }
@@ -31,15 +32,17 @@
       text-decoration: none;
       color: #333;
       font-weight: bold;
+      cursor: pointer;
     }
     section {
       padding: 20px;
     }
     .highlight {
-      background-color: #fff2e6;
+      background-color: rgba(255, 236, 247, 0.95);
       padding: 10px;
       border-radius: 10px;
       margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(255, 192, 203, 0.4);
     }
     footer {
       background-color: #ffe6cc;
@@ -52,7 +55,7 @@
     }
     .contact-button {
       display: inline-block;
-      background-color: #ffaf66;
+      background-color: #ff99cc;
       color: white;
       padding: 10px 20px;
       border-radius: 8px;
@@ -60,9 +63,18 @@
       margin-top: 15px;
     }
     .contact-button:hover {
-      background-color: #ff9940;
+      background-color: #ff66b2;
     }
   </style>
+  <script>
+    function naita(valik) {
+      const osad = ['avaleht', 'teenused', 'piirkond', 'hinnakiri', 'minust', 'kontakt'];
+      osad.forEach(id => {
+        document.getElementById(id).style.display = (id === valik) ? 'block' : 'none';
+      });
+    }
+    window.onload = () => naita('avaleht');
+  </script>
 </head>
 <body>
   <header>
@@ -71,40 +83,44 @@
   </header>
 
   <nav>
-    <a href="#teenused">Teenused</a>
-    <a href="#piirkond">Piirkond</a>
-    <a href="#hinnakiri">Hinnakiri</a>
-    <a href="#minust">Minust</a>
-    <a href="#kontakt">Kontakt</a>
+    <a onclick="naita('avaleht')">Avaleht</a>
+    <a onclick="naita('teenused')">Teenused</a>
+    <a onclick="naita('piirkond')">Piirkond</a>
+    <a onclick="naita('hinnakiri')">Hinnakiri</a>
+    <a onclick="naita('minust')">Minust</a>
+    <a onclick="naita('kontakt')">Kontakt</a>
   </nav>
 
-  <section>
-    <div id="teenused" class="highlight">
-      <h2>Teenused</h2>
-      <p>Pakun koduhoidu koertele, kassidele ja isegi madudele omaniku enda kodus. Tegelen kõigega, mida lemmik vajab – mäng, tugi, ravimite andmine, valvamine ja hellus.</p>
-    </div>
+  <section id="avaleht" class="highlight">
+    <h2>Tere tulemast!</h2>
+    <p>Mina olen Carmen – südamega lemmikuhoidja Harjumaal. Hoolitsen kassi, koera või isegi mao eest just nagu enda lemmiku eest. Olen abiks, kui sul on puhkus, tööreis või ootamatu olukord – mina olen olemas!</p>
+  </section>
 
-    <div id="piirkond" class="highlight">
-      <h2>Piirkond</h2>
-      <p>Harjumaa</p>
-    </div>
+  <section id="teenused" class="highlight" style="display: none;">
+    <h2>Teenused</h2>
+    <p>Pakun koduhoidu koertele, kassidele ja isegi madudele omaniku enda kodus. Tegelen kõigega, mida lemmik vajab – mäng, tugi, ravimite andmine, valvamine ja hellus.</p>
+  </section>
 
-    <div id="hinnakiri" class="highlight">
-      <h2>Hinnakiri</h2>
-      <p>Hind oleneb asukohast ja hoiu pikkusest. Küsi personaalset pakkumist!</p>
-    </div>
+  <section id="piirkond" class="highlight" style="display: none;">
+    <h2>Piirkond</h2>
+    <p>Harjumaa</p>
+  </section>
 
-    <div id="minust" class="highlight">
-      <h2>Minust</h2>
-      <p>Olen armastanud loomi juba lapsest saati. Olen hoidnud lemmikuid tuttavatel ja nende tuttavatel. See töö on minu jaoks puhas rõõm ja võimalus olla toeks nii loomale kui ka omanikule. Olgu põhjuseks puhkusereis või ootamatu äraolek – mina olen olemas.</p>
-    </div>
+  <section id="hinnakiri" class="highlight" style="display: none;">
+    <h2>Hinnakiri</h2>
+    <p>Hind oleneb asukohast ja hoiu pikkusest. Küsi personaalset pakkumist!</p>
+  </section>
 
-    <div id="kontakt" class="highlight contact">
-      <h2>Kontakt</h2>
-      <p>Telefon: 5544309<br>
-         E-mail: cadementjev@gmail.com</p>
-      <a class="contact-button" href="mailto:cadementjev@gmail.com">Kirjuta mulle</a>
-    </div>
+  <section id="minust" class="highlight" style="display: none;">
+    <h2>Minust</h2>
+    <p>Olen armastanud loomi juba lapsest saati. Olen hoidnud lemmikuid tuttavatel ja nende tuttavatel. See töö on minu jaoks puhas rõõm ja võimalus olla toeks nii loomale kui ka omanikule. Olgu põhjuseks puhkusereis või ootamatu äraolek – mina olen olemas.</p>
+  </section>
+
+  <section id="kontakt" class="highlight contact" style="display: none;">
+    <h2>Kontakt</h2>
+    <p>Telefon: 5544309<br>
+       E-mail: cadementjev@gmail.com</p>
+    <a class="contact-button" href="mailto:cadementjev@gmail.com">Kirjuta mulle</a>
   </section>
 
   <footer>
@@ -112,4 +128,3 @@
   </footer>
 </body>
 </html>
-
