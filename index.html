@@ -1,123 +1,81 @@
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
-159
-160
-161
-162
-163
-164
-165
-166
-167
-168
-169
-170
-171
-172
-173
-174
-175
-176
-177
-178
-179
-180
-181
-182
-183
-184
-185
-186
-187
-188
-189
-190
-191
-192
-193
-194
-195
-196
-197
 <!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemmikuhoidja Carmen – Südamega lemmikute eest</title>
+  <meta name="description" content="Carmen pakub südamest lemmikuhoidu Harjumaal – kassidele, koertele ja madudele. Usaldusväärne, hooliv ja paindlik teenus sinu kodus.">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffe6f0;
+      background-image: url('https://www.transparenttextures.com/patterns/paw-print.png');
+      color: #333;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+    header {
+      background-color: rgba(255, 217, 236, 0.9);
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+    nav {
+      background-color: #ffcce5;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    section {
+      padding: 20px;
+    }
+    .highlight {
+      background-color: rgba(255, 236, 247, 0.95);
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(255, 192, 203, 0.4);
+    }
+    footer {
+      background-color: #ffe6cc;
+      text-align: center;
+      padding: 10px;
+      font-size: 0.9em;
+    }
+    .contact {
+      font-weight: bold;
+    }
+    .contact-button {
+      display: inline-block;
+      background-color: #ff99cc;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      margin-top: 15px;
+    }
+    .contact-button:hover {
+      background-color: #ff66b2;
+    }
+    .paw-decor {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      opacity: 0.3;
+      z-index: 0;
     }
     .paw-top-left {
       top: 10px;
@@ -176,10 +134,9 @@
   <section id="avaleht" class="highlight">
     <h2>Tere tulemast!</h2>
     <p>Mina olen Carmen – südamega lemmikuhoidja Harjumaal. Hoolitsen kassi, koera või isegi mao eest just nagu enda lemmiku eest. Olen abiks, kui sul on puhkus, tööreis või ootamatu olukord – mina olen olemas!</p>
-    <img src="/mnt/data/IMG_20250223_145901.jpg" alt="Carmen koos maoga" class="gallery-img">
-    <img src="/mnt/data/482201737_1397723651638074_2661340484450482393_n.jpg" alt="Carmen valges topis koos kassiga" class="gallery-img">
-    <img src="/mnt/data/481343337_1397723271638112_6860183110113505531_n.jpg" alt="Carmen ruudulise särgiga koos kassiga" class="gallery-img">
-    <img src="/mnt/data/336860039_769538011049414_4160573057623645940_n.jpg" alt="Carmen istub rohus must-valge kassiga" class="gallery-img">
+    <img src="img/maoga.jpg" alt="Carmen koos maoga" class="gallery-img">
+    <img src="img/valge-topiga.jpg" alt="Carmen valges topis koos kassiga" class="gallery-img">
+    <img src="img/ruuduline.jpg" alt="Carmen ruudulise särgiga koos kassiga" class="gallery-img">
   </section>
 
   <section id="teenused" class="highlight" style="display: none;">
@@ -213,13 +170,13 @@
     <h2>Minust</h2>
     <p>Olen Carmen ja loomad on olnud minu elu lahutamatu osa juba väiksest peale. Olen kokku puutunud väga erinevate loomadega ja alati leidnud nendega ühise keele. Minu jaoks on loomadega tegelemine suur rõõm – mängimine, paitamine, jalutamine, söötmine ja lihtsalt olemasolemine on minu igapäevane rõõm. 
     Mul on ka kaks imearmsat kassi – Kitty ja Akiko –, keda ma väga hoian ja armastan.</p>
-    <img src="/mnt/data/IMG_7705.jpg" alt="Akiko valgel tekil" class="gallery-img">
-    <img src="/mnt/data/IMG_8530.jpg" alt="Kitty võimendi peal" class="gallery-img">
-    <img src="/mnt/data/481271566_1397723334971439_1200691102466868320_n.jpg" alt="Carmen süles kassiga" class="gallery-img">
-    <img src="/mnt/data/481083495_1397723561638083_7694274814720395021_n.jpg" alt="Carmen ja kass punaste kardinate ees" class="gallery-img">
-    <img src="/mnt/data/481220963_1397723664971406_3759290322607266311_n.jpg" alt="Carmen ja must kass" class="gallery-img">
-    <img src="/mnt/data/481267493_1397723264971446_5419391329528219788_n.jpg" alt="Carmen paitab oranži kassi" class="gallery-img">
-    <img src="/mnt/data/481483347_1397723274971445_7447165635248228899_n.jpg" alt="Carmen hoiab halli kassipoega" class="gallery-img">
+    <img src="img/akiko.jpg" alt="Akiko valgel tekil" class="gallery-img">
+    <img src="img/kitty.jpg" alt="Kitty võimendi peal" class="gallery-img">
+    <img src="img/tutvus1.jpg" alt="Carmen süles kassiga" class="gallery-img">
+    <img src="img/tutvus2.jpg" alt="Carmen ja kass punaste kardinate ees" class="gallery-img">
+    <img src="img/tutvus3.jpg" alt="Carmen ja must kass" class="gallery-img">
+    <img src="img/tutvus4.jpg" alt="Carmen paitab oranži kassi" class="gallery-img">
+    <img src="img/tutvus5.jpg" alt="Carmen hoiab halli kassipoega" class="gallery-img">
   </section>
 
   <section id="kontakt" class="highlight contact" style="display: none;">
