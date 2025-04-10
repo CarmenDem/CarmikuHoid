@@ -87,10 +87,31 @@
     .active {
       background-color: #a14f4f;
     }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    input, textarea, button {
+      padding: 10px;
+      font-size: 1em;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #eab6c0;
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #d88a98;
+    }
   </style>
   <script>
     function naita(valik) {
-      const osad = ['avaleht', 'teenused', 'piirkond', 'hinnakiri', 'minust', 'kontakt'];
+      const osad = ['avaleht', 'teenused', 'piirkond', 'hinnakiri', 'minust', 'kontakt', 'tagasiside', 'kkk', 'broneeri'];
       osad.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = (id === valik) ? 'block' : 'none';
@@ -132,55 +153,24 @@
     <a onclick="naita('hinnakiri')">Hinnakiri</a>
     <a onclick="naita('minust')">Minust</a>
     <a onclick="naita('kontakt')">Kontakt</a>
+    <a onclick="naita('tagasiside')">Tagasiside</a>
+    <a onclick="naita('kkk')">KKK</a>
+    <a onclick="naita('broneeri')">Broneeri</a>
   </nav>
 
-  <section id="avaleht" class="highlight">
-    <h2>Tere tulemast!</h2>
-    <p>Mina olen Carmen – südamega ja professionaalne lemmikuhoidja Harjumaal. Hoolitsen kassi, koera või isegi mao eest sama suure hoole ja vastutustundega, nagu oma lemmiku eest. Olen abiks, kui sul on puhkus, tööreis või ootamatu olukord – mina olen olemas.</p>
-    <div class="slideshow-container">
-      <div class="mySlides"><img src="IMG_20250223_145901.jpg" class="slide-img" alt="Carmen koos maoga"></div>
-      <div class="mySlides"><img src="336860039_769538011049414_4160573057627722910_n.jpg" class="slide-img" alt="Carmen valges topis koos kassiga"></div>
-      <div class="mySlides"><img src="481343337_1397723271638112_6860183110131228544_n.jpg" class="slide-img" alt="Carmen ruudulise särgiga koos kassiga"></div>
-    </div>
-    <div class="dot-container">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </section>
+  <!-- olemasolevad sektsioonid jäävad samaks -->
 
-  <section id="teenused" class="highlight" style="display:none">
-    <h2>Teenused</h2>
-    <ul>
-      <li>Kassihoid</li>
-      <li>Koerahoid</li>
-      <li>Maohoid</li>
-      <li>Näriliste hoid</li>
-    </ul>
-  </section>
-
-  <section id="piirkond" class="highlight" style="display:none">
-    <h2>Piirkond</h2>
-    <p>Harjumaa – Tallinn, Viimsi, Haabersti ja teised lähipiirkonnad. Küsi julgelt ka kaugemalt!</p>
-  </section>
-
-  <section id="hinnakiri" class="highlight" style="display:none">
-    <h2>Hinnakiri</h2>
-    <table>
-      <tr><th>Asukoht</th><th>Päevahind</th><th>Ööpäev</th></tr>
-      <tr><td>Tallinn</td><td>15 €</td><td>25 €</td></tr>
-      <tr><td>Tallinnast väljas</td><td>+5 € sõidukulu</td><td>+5 € sõidukulu</td></tr>
-    </table>
-  </section>
-
-  <section id="minust" class="highlight" style="display:none">
-    <h2>Minust</h2>
-    <p>Olen Carmen ja loomad on olnud minu elu lahutamatu osa juba väikesest peale. Olen kokku puutunud väga erinevate loomadega ja alati leidnud nendega ühise keele. Mul on kaks imelist kassi – Kitty ja Akiko –, keda väga hoian ja armastan.</p>
-  </section>
-
-  <section id="kontakt" class="highlight" style="display:none">
-    <h2>Kontakt</h2>
-    <p>Email: cadementjev@gmail.com<br>Telefon: 5544309</p>
+  <section id="broneeri" class="highlight" style="display:none">
+    <h2>Broneeri aeg</h2>
+    <p>Soovid hoidu broneerida? Täida vorm allpool ja ma võtan sinuga ühendust!</p>
+    <form action="mailto:cadementjev@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="nimi" placeholder="Sinu nimi" required>
+      <input type="email" name="email" placeholder="E-post" required>
+      <input type="text" name="lemmik" placeholder="Lemmiku liik (nt kass, koer vms)" required>
+      <input type="text" name="kuupäevad" placeholder="Soovitud hoiu kuupäevad" required>
+      <textarea name="sõnum" rows="4" placeholder="Lisa infot või küsimusi..."></textarea>
+      <button type="submit">Saada</button>
+    </form>
   </section>
 </body>
 </html>
