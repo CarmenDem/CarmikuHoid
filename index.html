@@ -6,6 +6,8 @@
   <title>Lemmikuhoidja Carmen – Usaldusväärne lemmikuhoid Harjumaal</title>
   <meta name="description" content="Professionaalne lemmikuhoidja Carmen – kassidele, koertele ja madudele. Usaldusväärne ja hooliv teenus sinu kodus Harjumaal.">
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #faf7f5;
@@ -14,7 +16,7 @@
       color: #333;
     }
     header {
-      background-color: #f5d3d3;
+      background-color: #f8dede;
       padding: 30px;
       text-align: center;
       border-bottom: 2px solid #e2bcbc;
@@ -22,14 +24,15 @@
     header h1 {
       margin: 0;
       font-size: 2.8em;
-      font-weight: 600;
+      font-family: 'Playfair Display', serif;
+      color: #6a3d4f;
     }
     header p {
       font-size: 1.1em;
-      color: #555;
+      color: #444;
     }
     nav {
-      background-color: #eecfcf;
+      background-color: #efd3d3;
       padding: 12px;
       text-align: center;
     }
@@ -88,7 +91,8 @@
     function naita(valik) {
       const osad = ['avaleht', 'teenused', 'piirkond', 'hinnakiri', 'minust', 'kontakt'];
       osad.forEach(id => {
-        document.getElementById(id).style.display = (id === valik) ? 'block' : 'none';
+        const el = document.getElementById(id);
+        if (el) el.style.display = (id === valik) ? 'block' : 'none';
       });
     }
 
@@ -143,7 +147,6 @@
       <span class="dot"></span>
     </div>
   </section>
-
 </body>
 </html>
 
