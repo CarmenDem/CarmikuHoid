@@ -194,11 +194,13 @@
   <section id="broneeri" class="highlight" style="display:none">
     <h2>Broneeri aeg</h2>
     <p>Soovid hoidu broneerida? Täida vorm allpool ja ma võtan sinuga ühendust!</p>
-    <form action="mailto:cadementjev@gmail.com" method="post" enctype="text/plain">
+   <form action="https://formsubmit.co/cadementjev@gmail.com" method="POST">
       <input type="text" name="nimi" placeholder="Sinu nimi" required>
       <input type="email" name="email" placeholder="E-post" required>
       <input type="text" name="lemmik" placeholder="Lemmiku liik (nt kass, koer vms)" required>
       <input type="text" name="kuupäevad" placeholder="Soovitud hoiu kuupäevad" required>
+     <input type="hidden" name="_captcha" value="false">
+     <input type="hidden" name="_next" value="https://carmendem.github.io/Lemmikuhoidja/tänan.html">
       <textarea name="sõnum" rows="4" placeholder="Lisa infot või küsimusi..."></textarea>
       <button type="submit">Saada</button>
     </form>
