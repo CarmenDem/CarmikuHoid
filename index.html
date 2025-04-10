@@ -3,164 +3,163 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lemmikuhoidja Carmen – Usaldusväärne lemmikuhoid Harjumaal</title>
-  <meta name="description" content="Professionaalne lemmikuhoidja Carmen – kassidele, koertele ja madudele. Usaldusväärne ja hooliv teenus sinu kodus Harjumaal.">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Lemmikuhoidja Carmen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom, #faf7f5, #ffeef0);
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: url('IMG_20230219_221440.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
     }
-    header {
-      background-color: #f8dede;
-      padding: 30px;
-      text-align: center;
-      border-bottom: 2px solid #e2bcbc;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.8em;
-      color: #6a3d4f;
-      font-weight: 600;
-    }
-    header p {
-      font-size: 1.1em;
-      color: #444;
+    .overlay {
+      background-color: rgba(255, 255, 255, 0.85);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
     }
     nav {
-      background-color: #efd3d3;
-      padding: 12px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+      width: 250px;
+      background-color: #fff5f7;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      border-right: 1px solid #e6cfd4;
     }
     nav a {
-      margin: 0 15px;
       text-decoration: none;
-      color: #333;
       font-weight: 600;
-      cursor: pointer;
-      transition: color 0.3s ease;
+      color: #a04b6c;
+      transition: all 0.3s ease;
     }
     nav a:hover {
-      color: #a14f4f;
+      color: #e74888;
+    }
+    main {
+      flex: 1;
+      padding: 40px;
     }
     section {
-      padding: 40px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .highlight {
-      background-color: #fff9f9;
-      border-radius: 12px;
+      margin-bottom: 50px;
       padding: 30px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-    }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      margin-top: 30px;
-    }
-    .gallery img {
-      width: 220px;
-      height: 220px;
-      object-fit: cover;
+      background-color: white;
       border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    .gallery img:hover {
-      transform: scale(1.05);
+    h1, h2 {
+      color: #a04b6c;
+      font-family: 'Playfair Display', serif;
     }
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
     }
-    table th, table td {
-      padding: 10px;
+    table, th, td {
       border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 12px;
       text-align: left;
     }
-    table th {
-      background-color: #f4dada;
+    th {
+      background-color: #ffeaf0;
     }
-    input, textarea, button {
-      font-family: 'Inter', sans-serif;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    input, textarea {
+      padding: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1em;
+    }
+    .paw-button {
+      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center center;
+      background-size: 40px 40px;
+      width: 50px;
+      height: 50px;
+      border: none;
+      cursor: pointer;
+      align-self: start;
+    }
+    .anim-banner {
+      height: 80px;
+      background: linear-gradient(to right, #ffe6f0, #fce8ee);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      color: #8d3c5a;
+      font-weight: 600;
+      letter-spacing: 1px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Lemmikuhoidja Carmen</h1>
-    <p>Usaldusväärne ja hooliv lemmikuhoid Harjumaal</p>
-  </header>
+  <div class="anim-banner">Loomasõbralik ja usaldusväärne lemmikuhoid Harjumaal 🐾</div>
+  <div class="overlay">
+    <nav>
+      <a href="#avaleht">Avaleht</a>
+      <a href="#teenused">Teenused ja hinnakiri</a>
+      <a href="#kontakt">Kontakt</a>
+      <a href="#broneeri">Broneeri</a>
+      <a href="#kkk">KKK</a>
+      <a href="#tagasiside">Tagasiside</a>
+    </nav>
+    <main>
+      <section id="avaleht">
+        <h1>Hei, olen Carmen!</h1>
+        <p>Olen loomasõber, kes on juba lapsest saati tundnud erilist sidet loomadega. Minu jaoks on loomade eest hoolitsemine südameasi, mitte lihtsalt töö. Kui vajad usaldusväärset inimest, kes hoolitseks sinu karvase või soomuselise sõbra eest, siis oled just õiges kohas!</p>
+      </section>
 
-  <nav>
-    <a onclick="naita('avaleht')">Avaleht</a>
-    <a onclick="naita('teenused')">Teenused ja hinnakiri</a>
-    <a onclick="naita('piirkond')">Piirkond</a>
-    <a onclick="naita('minust')">Minust</a>
-    <a onclick="naita('kontakt')">Kontakt</a>
-    <a onclick="naita('tagasiside')">Tagasiside</a>
-    <a onclick="naita('kkk')">KKK</a>
-    <a onclick="naita('broneeri')">Broneeri</a>
-    <a onclick="naita('galerii')">Galerii</a>
-  </nav>
+      <section id="teenused">
+        <h2>Teenused ja hinnakiri</h2>
+        <table>
+          <tr><th>Teenuse liik</th><th>Hind</th><th>Lisainfo</th></tr>
+          <tr><td>Lemmikuhoid (kassid, koerad, närilised, maod)</td><td>20 € / päev<br>25 € / ööpäev</td><td>Asukoht: Harjumaa (Tallinn, Haabersti, Viimsi)<br>Tallinnast kaugemal lisandub 5 € sõidukulu</td></tr>
+        </table>
+      </section>
 
-  <section id="avaleht" class="highlight">
-    <h2>Tere tulemast!</h2>
-    <p>Olen Carmen – südame ja kogemusega lemmikuhoidja. Hoolitsen usaldusväärselt sinu kassi, koera, mao või närilise eest Harjumaal. Tunnen rõõmu loomade eest hoolitsemisest ja annan neile vajaliku turvatunde, kui sina eemal oled.</p>
-    <div class="gallery">
-      <img src="IMG_20250223_145901.jpg" alt="Carmen koos maoga">
-      <img src="IMG_7705.jpg" alt="Carmen ja kass valges topis">
-      <img src="IMG_8530.jpg" alt="Carmen ruudulise särgiga">
-    </div>
-  </section>
+      <section id="kontakt">
+        <h2>Kontakt</h2>
+        <p>Email: cadementjev@gmail.com<br>Telefon: 5544309</p>
+        <button onclick="document.getElementById('broneeri').scrollIntoView({behavior: 'smooth'})">Võta ühendust</button>
+      </section>
 
-  <section id="galerii" class="highlight" style="display:none">
-    <h2>Pildigalerii</h2>
-    <div class="gallery">
-      <img src="IMG_20250223_145901.jpg" alt="Carmen koos maoga">
-      <img src="IMG_7705.jpg" alt="Carmen ja kass valges topis">
-      <img src="IMG_8530.jpg" alt="Carmen ruudulise särgiga">
-    </div>
-  </section>
+      <section id="broneeri">
+        <h2>Broneeri aeg</h2>
+        <form action="https://formsubmit.co/cadementjev@gmail.com" method="POST">
+          <input type="text" name="nimi" placeholder="Sinu nimi" required>
+          <input type="text" name="lemmik" placeholder="Keda hoian" required>
+          <input type="text" name="kuupäev" placeholder="Soovitud kuupäev" required>
+          <textarea name="lisainfo" placeholder="Lisainfo..."></textarea>
+          <input type="hidden" name="_captcha" value="false">
+          <button class="paw-button" type="submit"></button>
+        </form>
+      </section>
 
-  <!-- Ülejäänud sektsioonid jäävad samaks, välja arvatud broneering -->
+      <section id="kkk">
+        <h2>Korduma kippuvad küsimused (KKK)</h2>
+        <p><strong>Kus toimub hoidmisteenus?</strong><br>Hoiuteenus toimub looma enda kodus, et pakkuda talle turvalist keskkonda.</p>
+        <p><strong>Kas hoiad ka eksootilisi loomi?</strong><br>Jah, ka maod ja närilised on teretulnud!</p>
+      </section>
 
-  <section id="broneeri" class="highlight" style="display:none">
-    <h2>Broneeri aeg</h2>
-    <p>Soovid hoidu broneerida? Täida vorm allpool ja ma võtan sinuga ühendust!</p>
-    <form action="https://formsubmit.co/cadementjev@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://carmendem.github.io/Lemmikuhoidja/tänan.html">
-      <input type="text" name="nimi" placeholder="Sinu nimi" required>
-      <input type="email" name="email" placeholder="E-post" required>
-      <input type="text" name="lemmik" placeholder="Lemmiku liik (nt kass, koer vms)" required>
-      <input type="text" name="kuupäevad" placeholder="Soovitud hoiu kuupäevad" required>
-      <textarea name="sõnum" rows="4" placeholder="Lisa infot või küsimusi..."></textarea>
-      <button type="submit">Saada</button>
-    </form>
-  </section>
-
-  <script>
-    function naita(id) {
-      const osad = ['avaleht', 'teenused', 'piirkond', 'minust', 'kontakt', 'tagasiside', 'kkk', 'broneeri', 'galerii'];
-      osad.forEach(el => {
-        const section = document.getElementById(el);
-        if (section) {
-          section.style.display = (el === id) ? 'block' : 'none';
-        }
-      });
-    }
-    window.onload = () => naita('avaleht');
-  </script>
+      <section id="tagasiside">
+        <h2>Tagasiside</h2>
+        <p>"Carmen oli super! Meie kass tundis end turvaliselt ja hoituna." – <em>Liis, Viimsi</em></p>
+        <p>"Soovitan soojalt – usaldusväärne ja armas inimene." – <em>Martin, Haabersti</em></p>
+      </section>
+    </main>
+  </div>
 </body>
 </html>
