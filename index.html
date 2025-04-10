@@ -231,4 +231,172 @@
   </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lemmikuhoidja Carmen – Usaldusväärne lemmikuhoid Harjumaal</title>
+  <meta name="description" content="Professionaalne lemmikuhoidja Carmen – kassidele, koertele ja madudele. Usaldusväärne ja hooliv teenus sinu kodus Harjumaal.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #faf7f5, #ffeef0);
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #f8dede;
+      padding: 30px;
+      text-align: center;
+      border-bottom: 2px solid #e2bcbc;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8em;
+      font-family: 'Playfair Display', serif;
+      color: #6a3d4f;
+    }
+    header p {
+      font-size: 1.1em;
+      color: #444;
+    }
+    nav {
+      background-color: #efd3d3;
+      padding: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 600;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+    nav a:hover {
+      color: #a14f4f;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .highlight {
+      background-color: #fff9f9;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .gallery img {
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table th, table td {
+      padding: 10px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    table th {
+      background-color: #f4dada;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lemmikuhoidja Carmen</h1>
+    <p>Usaldusväärne ja hooliv lemmikuhoid Harjumaal</p>
+  </header>
+
+  <nav>
+    <a onclick="naita('avaleht')">Avaleht</a>
+    <a onclick="naita('teenused')">Teenused ja hinnakiri</a>
+  </nav>
+
+  <section id="avaleht" class="highlight">
+    <h2>Tere tulemast!</h2>
+    <p>Olen Carmen – südame ja kogemusega lemmikuhoidja. Hoolitsen usaldusväärselt sinu kassi, koera, mao või närilise eest Harjumaal. Tunnen rõõmu loomade eest hoolitsemisest ja annan neile vajaliku turvatunde, kui sina eemal oled.</p>
+    <div class="gallery">
+      <img src="IMG_20250223_145901.jpg" alt="Carmen koos maoga">
+    </div>
+  </section>
+
+  <section id="teenused" class="highlight" style="display:none">
+    <h2>Teenused ja hinnakiri</h2>
+    <p>Pakun südamega koduhoidu erinevatele lemmikutele – kassihoid, koerahoid, maohoid ja näriliste hoid. Teenus toimub looma enda kodus, et pakkuda talle võimalikult turvalist ja tuttavat keskkonda.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Teenuse liik</th>
+          <th>Kirjeldus</th>
+          <th>Hind Tallinnas</th>
+          <th>Väljaspool Tallinna</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Kassihoid</td>
+          <td>Toitmine, mäng, hellus, liivakasti puhastus</td>
+          <td>15 € / päev<br>25 € / ööpäev</td>
+          <td>+5 € sõidukulu</td>
+        </tr>
+        <tr>
+          <td>Koerahoid</td>
+          <td>Toitmine, mäng, jalutamine, paitamine</td>
+          <td>15 € / päev<br>25 € / ööpäev</td>
+          <td>+5 € sõidukulu</td>
+        </tr>
+        <tr>
+          <td>Maohoid</td>
+          <td>Keskkonna jälgimine, toitmine vastavalt liigile</td>
+          <td>15 € / päev<br>25 € / ööpäev</td>
+          <td>+5 € sõidukulu</td>
+        </tr>
+        <tr>
+          <td>Närilised</td>
+          <td>Puuri hooldus, toitmine, suhtlus</td>
+          <td>15 € / päev<br>25 € / ööpäev</td>
+          <td>+5 € sõidukulu</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <script>
+    function naita(id) {
+      const osad = ['avaleht', 'teenused'];
+      osad.forEach(el => {
+        document.getElementById(el).style.display = (el === id) ? 'block' : 'none';
+      });
+    }
+    window.onload = () => naita('avaleht');
+  </script>
+</body>
+</html>
+
 
