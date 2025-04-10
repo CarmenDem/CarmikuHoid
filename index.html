@@ -4,162 +4,166 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lemmikuhoidja Carmen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <style>
-    * {
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: url('IMG_20230219_221440.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #333;
     }
-    .overlay {
-      background-color: rgba(255, 255, 255, 0.85);
-      min-height: 100vh;
-      display: flex;
-      flex-direction: row;
+    header {
+      background-color: rgba(248, 222, 222, 0.9);
+      padding: 20px;
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #6a3d4f;
     }
     nav {
-      width: 250px;
-      background-color: #fff5f7;
-      padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      border-right: 1px solid #e6cfd4;
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 200px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      padding-top: 100px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     }
     nav a {
+      display: block;
+      color: #6a3d4f;
+      padding: 12px;
       text-decoration: none;
-      font-weight: 600;
-      color: #a04b6c;
-      transition: all 0.3s ease;
+      font-weight: bold;
     }
     nav a:hover {
-      color: #e74888;
-    }
-    main {
-      flex: 1;
-      padding: 40px;
+      background-color: #fcdfe1;
     }
     section {
-      margin-bottom: 50px;
-      padding: 30px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: none;
+      margin-left: 220px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.85);
+      margin-top: 20px;
+      border-radius: 8px;
     }
-    h1, h2 {
-      color: #a04b6c;
-      font-family: 'Playfair Display', serif;
+    section.active {
+      display: block;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
     }
     table, th, td {
       border: 1px solid #ccc;
     }
     th, td {
-      padding: 12px;
-      text-align: left;
+      padding: 10px;
     }
     th {
-      background-color: #ffeaf0;
+      background-color: #f8dede;
     }
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    input, textarea {
-      padding: 12px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      font-size: 1em;
-    }
-    .paw-button {
-      background: url('https://cdn-icons-png.flaticon.com/512/616/616408.png') no-repeat center center;
-      background-size: 40px 40px;
+    button.käpp {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      border: none;
       width: 50px;
       height: 50px;
-      border: none;
       cursor: pointer;
-      align-self: start;
     }
-    .anim-banner {
-      height: 80px;
-      background: linear-gradient(to right, #ffe6f0, #fce8ee);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2em;
-      color: #8d3c5a;
-      font-weight: 600;
-      letter-spacing: 1px;
+    .paw-header {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .paw-header img {
+      height: 40px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
 <body>
-  <div class="anim-banner">Loomasõbralik ja usaldusväärne lemmikuhoid Harjumaal 🐾</div>
-  <div class="overlay">
-    <nav>
-      <a href="#avaleht">Avaleht</a>
-      <a href="#teenused">Teenused ja hinnakiri</a>
-      <a href="#kontakt">Kontakt</a>
-      <a href="#broneeri">Broneeri</a>
-      <a href="#kkk">KKK</a>
-      <a href="#tagasiside">Tagasiside</a>
-    </nav>
-    <main>
-      <section id="avaleht">
-        <h1>Hei, olen Carmen!</h1>
-        <p>Olen loomasõber, kes on juba lapsest saati tundnud erilist sidet loomadega. Minu jaoks on loomade eest hoolitsemine südameasi, mitte lihtsalt töö. Kui vajad usaldusväärset inimest, kes hoolitseks sinu karvase või soomuselise sõbra eest, siis oled just õiges kohas!</p>
-      </section>
+  <header>
+    Lemmikuhoidja Carmen
+    <div class="paw-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="kassikäpp">
+    </div>
+  </header>
 
-      <section id="teenused">
-        <h2>Teenused ja hinnakiri</h2>
-        <table>
-          <tr><th>Teenuse liik</th><th>Hind</th><th>Lisainfo</th></tr>
-          <tr><td>Lemmikuhoid (kassid, koerad, närilised, maod)</td><td>20 € / päev<br>25 € / ööpäev</td><td>Asukoht: Harjumaa (Tallinn, Haabersti, Viimsi)<br>Tallinnast kaugemal lisandub 5 € sõidukulu</td></tr>
-        </table>
-      </section>
+  <nav>
+    <a onclick="showSection('avaleht')">Avaleht</a>
+    <a onclick="showSection('teenused')">Teenused ja hinnakiri</a>
+    <a onclick="showSection('kontakt')">Kontakt</a>
+    <a onclick="showSection('broneeri')">Broneeri</a>
+    <a onclick="showSection('kkk')">KKK</a>
+    <a onclick="showSection('tagasiside')">Tagasiside</a>
+  </nav>
 
-      <section id="kontakt">
-        <h2>Kontakt</h2>
-        <p>Email: cadementjev@gmail.com<br>Telefon: 5544309</p>
-        <button onclick="document.getElementById('broneeri').scrollIntoView({behavior: 'smooth'})">Võta ühendust</button>
-      </section>
+  <section id="avaleht" class="active">
+    <h2>Hei, olen Carmen!</h2>
+    <p>Olen loomasõber, kes on juba lapsest saati tundnud erilist sidet loomadega. Minu jaoks on loomade eest hoolitsemine südameasi, mitte lihtsalt töö. Kui vajad usaldusväärset inimest, kes hoolitseks sinu karvase või soomuselise sõbra eest, siis oled just õiges kohas!</p>
+  </section>
 
-      <section id="broneeri">
-        <h2>Broneeri aeg</h2>
-        <form action="https://formsubmit.co/cadementjev@gmail.com" method="POST">
-          <input type="text" name="nimi" placeholder="Sinu nimi" required>
-          <input type="text" name="lemmik" placeholder="Keda hoian" required>
-          <input type="text" name="kuupäev" placeholder="Soovitud kuupäev" required>
-          <textarea name="lisainfo" placeholder="Lisainfo..."></textarea>
-          <input type="hidden" name="_captcha" value="false">
-          <button class="paw-button" type="submit"></button>
-        </form>
-      </section>
+  <section id="teenused">
+    <h2>Teenused ja hinnakiri</h2>
+    <table>
+      <tr>
+        <th>Teenuse liik</th>
+        <th>Hind</th>
+        <th>Lisainfo</th>
+      </tr>
+      <tr>
+        <td>Lemmikuhoid (kassid, koerad, närilised, maod)</td>
+        <td>20 € / päev<br>25 € / ööpäev</td>
+        <td>Harjumaa (Tallinn, Haabersti, Viimsi)<br>Kaugemal lisandub 5 € sõidukulu</td>
+      </tr>
+    </table>
+  </section>
 
-      <section id="kkk">
-        <h2>Korduma kippuvad küsimused (KKK)</h2>
-        <p><strong>Kus toimub hoidmisteenus?</strong><br>Hoiuteenus toimub looma enda kodus, et pakkuda talle turvalist keskkonda.</p>
-        <p><strong>Kas hoiad ka eksootilisi loomi?</strong><br>Jah, ka maod ja närilised on teretulnud!</p>
-      </section>
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Email: <a href="mailto:cadementjev@gmail.com">cadementjev@gmail.com</a><br>
+    Telefon: <a href="tel:5544309">5544309</a></p>
+    <button onclick="showSection('broneeri')">Võta ühendust</button>
+  </section>
 
-      <section id="tagasiside">
-        <h2>Tagasiside</h2>
-        <p>"Carmen oli super! Meie kass tundis end turvaliselt ja hoituna." – <em>Liis, Viimsi</em></p>
-        <p>"Soovitan soojalt – usaldusväärne ja armas inimene." – <em>Martin, Haabersti</em></p>
-      </section>
-    </main>
-  </div>
+  <section id="broneeri">
+    <h2>Broneeri aeg</h2>
+    <form action="https://formsubmit.co/cadementjev@gmail.com" method="POST">
+      <input type="text" name="nimi" placeholder="Sinu nimi" required><br>
+      <input type="text" name="lemmik" placeholder="Keda hoian" required><br>
+      <input type="text" name="kuupäevad" placeholder="Soovitud kuupäev" required><br>
+      <textarea name="lisainfo" rows="4" placeholder="Lisainfo..."></textarea><br>
+      <button type="submit" class="käpp"></button>
+    </form>
+  </section>
+
+  <section id="kkk">
+    <h2>Korduma kippuvad küsimused</h2>
+    <p><strong>Kas sa tuled kliendi koju?</strong><br>Jah, kõik hoidmised toimuvad looma enda kodus.</p>
+    <p><strong>Kas võtad ka lühiajalisi hoidmisi?</strong><br>Jah, ka ühepäevased hoidmised on võimalikud.</p>
+    <p><strong>Kas tegeled ka eksootiliste loomadega?</strong><br>Võta ühendust ja arutame koos läbi!</p>
+  </section>
+
+  <section id="tagasiside">
+    <h2>Tagasiside</h2>
+    <blockquote>"Carmen oli äärmiselt hooliv ja armas meie kassi suhtes. Soovitame kindlasti!" – Kairi</blockquote>
+    <blockquote>"Broneerimine oli lihtne ja suhtlus kiire. Meie koer armus Carmenisse." – Rasmus</blockquote>
+  </section>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
 </body>
 </html>
