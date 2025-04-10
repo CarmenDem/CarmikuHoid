@@ -3,121 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lemmikuhoidja Carmen – Südamega lemmikute eest</title>
-  <meta name="description" content="Carmen pakub südamest lemmikuhoidu Harjumaal – kassidele, koertele ja madudele. Usaldusväärne, hooliv ja paindlik teenus sinu kodus.">
+  <title>Lemmikuhoidja Carmen – Usaldusväärne lemmikuhoid Harjumaal</title>
+  <meta name="description" content="Professionaalne lemmikuhoidja Carmen – kassidele, koertele ja madudele. Usaldusväärne ja hooliv teenus sinu kodus Harjumaal.">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #ffe6f0;
-      background-image: url('https://www.transparenttextures.com/patterns/paw-print.png');
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #faf7f5;
       margin: 0;
       padding: 0;
-      position: relative;
+      color: #333;
     }
     header {
-      background-color: rgba(255, 217, 236, 0.9);
-      padding: 20px;
+      background-color: #f5d3d3;
+      padding: 30px;
       text-align: center;
+      border-bottom: 2px solid #e2bcbc;
     }
     header h1 {
       margin: 0;
-      font-size: 2.5em;
+      font-size: 2.8em;
+      font-weight: 600;
+    }
+    header p {
+      font-size: 1.1em;
+      color: #555;
     }
     nav {
-      background-color: #ffcce5;
-      padding: 10px;
+      background-color: #eecfcf;
+      padding: 12px;
       text-align: center;
     }
     nav a {
-      margin: 0 15px;
+      margin: 0 20px;
       text-decoration: none;
       color: #333;
-      font-weight: bold;
-      cursor: pointer;
+      font-weight: 600;
+    }
+    nav a:hover {
+      color: #a14f4f;
     }
     section {
-      padding: 20px;
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
     .highlight {
-      background-color: rgba(255, 236, 247, 0.95);
-      padding: 10px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px rgba(255, 192, 203, 0.4);
+      background-color: #fff9f9;
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.05);
     }
-    footer {
-      background-color: #ffe6cc;
-      text-align: center;
-      padding: 10px;
-      font-size: 0.9em;
+    .slideshow-container {
+      position: relative;
+      max-width: 600px;
+      margin: 20px auto;
     }
-    .contact {
-      font-weight: bold;
+    .mySlides {
+      display: none;
     }
-    .contact-button {
-      display: inline-block;
-      background-color: #ff99cc;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 15px;
-    }
-    .contact-button:hover {
-      background-color: #ff66b2;
-    }
-    .paw-decor {
-      position: absolute;
-      width: 50px;
-      height: 50px;
-      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      opacity: 0.3;
-      z-index: 0;
-    }
-    .paw-top-left {
-      top: 10px;
-      left: 10px;
-    }
-    .paw-bottom-right {
-      bottom: 10px;
-      right: 10px;
-    }
-    table {
+    .slide-img {
       width: 100%;
-      border-collapse: collapse;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .dot-container {
+      text-align: center;
       margin-top: 10px;
     }
-    table, th, td {
-      border: 1px solid #ffb3d9;
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 4px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
     }
-    th, td {
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #ffe0f0;
-    }
-    .gallery-img {
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      object-fit: cover;
-      max-width: 100%;
-    }
-    .image-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      justify-content: center;
-    }
-    .gallery-item {
-      flex: 0 1 250px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .active {
+      background-color: #a14f4f;
     }
   </style>
   <script>
@@ -127,13 +91,33 @@
         document.getElementById(id).style.display = (id === valik) ? 'block' : 'none';
       });
     }
-    window.onload = () => naita('avaleht');
+
+    let slideIndex = 0;
+    function showSlides() {
+      const slides = document.getElementsByClassName("mySlides");
+      const dots = document.getElementsByClassName("dot");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      for (let i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex - 1].style.display = "block";
+      dots[slideIndex - 1].className += " active";
+      setTimeout(showSlides, 4000);
+    }
+    window.onload = function () {
+      naita('avaleht');
+      showSlides();
+    }
   </script>
 </head>
 <body>
   <header>
-    <h1>🐾 Lemmikuhoidja Carmen 🐾</h1>
-    <p>Lemmikutehoid Harjumaal – südamega teenus</p>
+    <h1>Lemmikuhoidja Carmen</h1>
+    <p>Usaldusväärne ja hooliv lemmikuhoid Harjumaal</p>
   </header>
 
   <nav>
@@ -147,14 +131,19 @@
 
   <section id="avaleht" class="highlight">
     <h2>Tere tulemast!</h2>
-    <p>Mina olen Carmen – südamega lemmikuhoidja Harjumaal. Hoolitsen kassi, koera või isegi mao eest just nagu enda lemmiku eest. Olen abiks, kui sul on puhkus, tööreis või ootamatu olukord – mina olen olemas!</p>
-    <div class="image-gallery">
-      <div class="gallery-item"><img src="IMG_20250223_145901.jpg" alt="Carmen koos maoga" class="gallery-img"></div>
-      <div class="gallery-item"><img src="336860039_769538011049414_4160573057627722910_n.jpg" alt="Carmen valges topis koos kassiga" class="gallery-img"></div>
-      <div class="gallery-item"><img src="481343337_1397723271638112_6860183110131228544_n.jpg" alt="Carmen ruudulise särgiga koos kassiga" class="gallery-img"></div>
+    <p>Mina olen Carmen – südamega ja professionaalne lemmikuhoidja Harjumaal. Hoolitsen kassi, koera või isegi mao eest sama suure hoole ja vastutustundega, nagu oma lemmiku eest. Olen abiks, kui sul on puhkus, tööreis või ootamatu olukord – mina olen olemas.</p>
+    <div class="slideshow-container">
+      <div class="mySlides"><img src="IMG_20250223_145901.jpg" class="slide-img" alt="Carmen koos maoga"></div>
+      <div class="mySlides"><img src="336860039_769538011049414_4160573057627722910_n.jpg" class="slide-img" alt="Carmen valges topis koos kassiga"></div>
+      <div class="mySlides"><img src="481343337_1397723271638112_6860183110131228544_n.jpg" class="slide-img" alt="Carmen ruudulise särgiga koos kassiga"></div>
+    </div>
+    <div class="dot-container">
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </section>
 
-  <!-- ülejäänud osad jäävad samaks -->
 </body>
 </html>
+
