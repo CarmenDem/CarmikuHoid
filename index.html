@@ -3,121 +3,170 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Broneeri</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Lemmikuhoidja Carmen</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      flex-direction: column;
+      background: url('IMG_20230219_221440.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+    }
+    header {
+      background-color: rgba(248, 222, 222, 0.9);
+      padding: 20px;
       text-align: center;
-      overflow: hidden;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #6a3d4f;
     }
-    h1 {
-      font-size: 3em;
-      color: #c15b84;
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-    p {
-      font-size: 1.3em;
-      color: #444;
-      max-width: 500px;
-    }
-    .confetti {
+    nav {
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 200px;
       position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
       height: 100%;
-      pointer-events: none;
-      z-index: 9999;
+      padding-top: 100px;
+      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
     }
-    .card {
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-      animation: fadeIn 0.8s ease-in-out;
-    }
-    .back-button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 12px 24px;
-      background-color: #c15b84;
-      color: white;
+    nav a {
+      display: block;
+      color: #6a3d4f;
+      padding: 12px;
       text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      background-color: #fcdfe1;
+    }
+    section {
+      display: none;
+      margin-left: 220px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.85);
+      margin-top: 20px;
       border-radius: 8px;
-      font-weight: 600;
-      transition: background-color 0.3s ease;
     }
-    .back-button:hover {
-      background-color: #a0446e;
+    section.active {
+      display: block;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
+    table {
+      width: 100%;
+      border-collapse: collapse;
     }
-    .cat-emoji {
-      font-size: 2.5rem;
-      animation: pop 0.8s ease-in-out;
+    table, th, td {
+      border: 1px solid #ccc;
     }
-    @keyframes pop {
-      0% { transform: scale(0.5); opacity: 0; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(1); }
+    th, td {
+      padding: 10px;
+    }
+    th {
+      background-color: #f8dede;
+    }
+    button.käpp {
+      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      border: none;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+    }
+    .paw-header {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .paw-header img {
+      height: 40px;
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Aitäh broneeringu eest!</h1>
-    <p>Sinu sõnum on saadetud. Võtan sinuga peagi ühendust 📬</p>
-    <div class="cat-emoji">🐱🎉</div>
-    <a href="index.html" class="back-button">Tagasi avalehele</a>
-  </div>
+  <header>
+    Lemmikuhoidja Carmen
+    <div class="paw-header">
+      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="kassikäpp">
+    </div>
+  </header>
 
-  <canvas class="confetti"></canvas>
+  <nav>
+    <a onclick="showSection('avaleht')">Avaleht</a>
+    <a onclick="showSection('teenused')">Teenused ja hinnakiri</a>
+    <a onclick="showSection('kontakt')">Kontakt</a>
+    <a onclick="showSection('broneeri')">Broneeri</a>
+    <a onclick="showSection('kkk')">KKK</a>
+    <a onclick="showSection('tagasiside')">Tagasiside</a>
+  </nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <section id="avaleht" class="active">
+    <h2>Hei, olen Carmen!</h2>
+    <p>Olen loomasõber, kes on juba lapsest saati tundnud erilist sidet loomadega. Minu jaoks on loomade eest hoolitsemine südameasi, mitte lihtsalt töö. Kui vajad usaldusväärset inimest, kes hoolitseks sinu karvase või soomuselise sõbra eest, siis oled just õiges kohas!</p>
+  </section>
+
+  <section id="teenused">
+    <h2>Teenused ja hinnakiri</h2>
+    <table>
+      <tr>
+        <th>Teenuse liik</th>
+        <th>Hind</th>
+        <th>Lisainfo</th>
+      </tr>
+      <tr>
+        <td>Lemmikuhoid (kassid, koerad, närilised, maod)</td>
+        <td>20 € / päev<br>25 € / ööpäev</td>
+        <td>Harjumaa (Tallinn, Haabersti, Viimsi)<br>Kaugemal lisandub 5 € sõidukulu</td>
+      </tr>
+    </table>
+  </section>
+
+  <section id="kontakt">
+    <h2>Kontakt</h2>
+    <p>Email: <a href="mailto:cadementjev@gmail.com">cadementjev@gmail.com</a><br>
+    Telefon: <a href="tel:5544309">5544309</a></p>
+    <button onclick="showSection('broneeri')">Võta ühendust</button>
+  </section>
+
+  <section id="broneeri">
+    <h2>Broneeri aeg</h2>
+    <form action="https://formsubmit.co/cadementjev@gmail.com" method="POST">
+      <input type="text" name="nimi" placeholder="Sinu nimi" required><br>
+      <input type="text" name="kontakt" placeholder="Sinu kontakt (telefon või e-post)" required><br>
+      <input type="text" name="lemmik" placeholder="Keda hoian" required><br>
+      <input type="text" name="kuupäevad" placeholder="Soovitud kuupäev(ad)" required><br>
+      <textarea name="sõnum" rows="4" placeholder="Lisainfo..."></textarea><br>
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://carmendem.github.io/Lemmikuhoidja/tänan.html">
+      <button type="submit" class="käpp"></button>
+    </form>
+  </section>
+
+  <section id="kkk">
+    <h2>Korduma kippuvad küsimused</h2>
+    <p><strong>Kas sa tuled kliendi koju?</strong><br>Jah, kõik hoidmised toimuvad looma enda kodus.</p>
+    <p><strong>Kas võtad ka lühiajalisi hoidmisi?</strong><br>Jah, ka ühepäevased hoidmised on võimalikud.</p>
+    <p><strong>Kas tegeled ka eksootiliste loomadega?</strong><br>Võta ühendust ja arutame koos läbi!</p>
+  </section>
+
+  <section id="tagasiside">
+    <h2>Tagasiside</h2>
+    <blockquote>"Carmen oli äärmiselt hooliv ja armas meie kassi suhtes. Soovitame kindlasti!" – Kairi</blockquote>
+    <blockquote>"Broneerimine oli lihtne ja suhtlus kiire. Meie koer armus Carmenisse." – Rasmus</blockquote>
+  </section>
+
   <script>
-    const duration = 3 * 1000;
-    const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-    function randomInRange(min, max) {
-      return Math.random() * (max - min) + min;
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
     }
-
-    const interval = setInterval(function () {
-      const timeLeft = animationEnd - Date.now();
-      if (timeLeft <= 0) {
-        return clearInterval(interval);
-      }
-
-      const particleCount = 50 * (timeLeft / duration);
-      confetti(Object.assign({}, defaults, {
-        particleCount,
-        origin: {
-          x: randomInRange(0.1, 0.3),
-          y: Math.random() - 0.2
-        }
-      }));
-      confetti(Object.assign({}, defaults, {
-        particleCount,
-        origin: {
-          x: randomInRange(0.7, 0.9),
-          y: Math.random() - 0.2
-        }
-      }));
-    }, 250);
   </script>
 </body>
 </html>
