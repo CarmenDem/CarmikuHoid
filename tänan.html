@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Täname broneeringu eest!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fff0f5, #ffe6f0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #c15b84;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.2em;
+      color: #444;
+    }
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 9999;
+    }
+  </style>
+</head>
+<body>
+  <h1>Aitäh broneeringu eest!</h1>
+  <p>Sinu sõnum on saadetud. Võtan sinuga peagi ühendust 💌</p>
+
+  <canvas class="confetti"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script>
+    const duration = 3 * 1000;
+    const animationEnd = Date.now() + duration;
+    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    const interval = setInterval(function () {
+      const timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      const particleCount = 50 * (timeLeft / duration);
+      confetti(Object.assign({}, defaults, {
+        particleCount,
+        origin: {
+          x: randomInRange(0.1, 0.3),
+          y: Math.random() - 0.2
+        }
+      }));
+      confetti(Object.assign({}, defaults, {
+        particleCount,
+        origin: {
+          x: randomInRange(0.7, 0.9),
+          y: Math.random() - 0.2
+        }
+      }));
+    }, 250);
+  </script>
+</body>
+</html>
