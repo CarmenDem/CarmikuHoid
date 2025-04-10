@@ -3,28 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Täname broneeringu eest!</title>
+  <title>Broneeri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #fff0f5, #ffe6f0);
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe6f0);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
       flex-direction: column;
       text-align: center;
+      overflow: hidden;
     }
     h1 {
-      font-size: 2.5em;
+      font-size: 3em;
       color: #c15b84;
       margin-bottom: 10px;
+      font-weight: 600;
     }
     p {
-      font-size: 1.2em;
+      font-size: 1.3em;
       color: #444;
+      max-width: 500px;
     }
     .confetti {
       position: fixed;
@@ -35,11 +39,50 @@
       pointer-events: none;
       z-index: 9999;
     }
+    .card {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    .back-button {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background-color: #c15b84;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .back-button:hover {
+      background-color: #a0446e;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    .cat-emoji {
+      font-size: 2.5rem;
+      animation: pop 0.8s ease-in-out;
+    }
+    @keyframes pop {
+      0% { transform: scale(0.5); opacity: 0; }
+      50% { transform: scale(1.2); opacity: 1; }
+      100% { transform: scale(1); }
+    }
   </style>
 </head>
 <body>
-  <h1>Aitäh broneeringu eest!</h1>
-  <p>Sinu sõnum on saadetud. Võtan sinuga peagi ühendust 💌</p>
+  <div class="card">
+    <h1>Aitäh broneeringu eest!</h1>
+    <p>Sinu broneering on saadetud. Võtan sinuga peagi ühendust. 📬</p>
+    <div class="cat-emoji">🐾🎉</div>
+    <a href="index.html" class="back-button">Tagasi avalehele</a>
+  </div>
 
   <canvas class="confetti"></canvas>
 
@@ -55,7 +98,6 @@
 
     const interval = setInterval(function () {
       const timeLeft = animationEnd - Date.now();
-
       if (timeLeft <= 0) {
         return clearInterval(interval);
       }
