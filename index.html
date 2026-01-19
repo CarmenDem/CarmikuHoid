@@ -3,232 +3,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lemmikuhoidja Carmen</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <title>Carmikuhoid – Lemmikuhoidja Carmen</title>
   <style>
-@media(max-width: 768px) {nav a {
-  flex: 1 1 50%;
-  text-align: center;
-  font-size: 0.95em;
-  padding: 10px;
-}
-  section {
-    margin-left: 0;
-    margin-top: 10px;
-    padding: 15px;
-    border-radius: 0;
-  }
-
-  header {
-    font-size: 1.2em;
-    padding: 15px;
-  }
-
-  .paw-header img {
-    height: 30px;
-  }
-
-  form input,
-  form textarea {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-  }
-
-  table, thead, tbody, th, td, tr {
-    display: block;
-    width: 100%;
-  }
-
-  table tr {
-    margin-bottom: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-
-  table td {
-    padding-left: 50%;
-    position: relative;
-  }
-
-  table td::before {
-    content: attr(data-label);
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    width: 45%;
-    font-weight: bold;
-    white-space: nowrap;
-    color: #6a3d4f;
-  }
-
-  th {
-    display: none;
-  }
-}
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: url('IMG_20230219_221440.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-    }
-    header {
-      background-color: rgba(248, 222, 222, 0.9);
-      padding: 20px;
-      text-align: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #6a3d4f;
-    }
-    nav {
-      background-color: rgba(255, 255, 255, 0.9);
-      width: 200px;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      padding-top: 100px;
-      box-shadow: 2px 0 5px rgba(0,0,0,0.1);
-    }
-    nav a {
-      display: block;
-      color: #6a3d4f;
-      padding: 12px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      background-color: #fcdfe1;
-    }
-    section {
-      display: none;
-      margin-left: 220px;
-      padding: 20px;
-      background-color: rgba(255, 255, 255, 0.85);
-      margin-top: 20px;
-      border-radius: 8px;
-    }
-    section.active {
-      display: block;
-    }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    table, th, td {
-      border: 1px solid #ccc;
-    }
-    th, td {
-      padding: 10px;
-    }
-    th {
-      background-color: #f8dede;
-    }
-    button.käpp {
-      background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
-      background-size: contain;
-      background-repeat: no-repeat;
-      border: none;
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-    }
-    .paw-header {
-      text-align: center;
-      margin-top: 10px;
-    }
-    .paw-header img {
-      height: 40px;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
+    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f8f8; color:#333; }
+    header { background:#ffcc00; padding:30px; text-align:center; }
+    header h1 { margin:0; font-size:2em; }
+    nav { display:flex; justify-content:center; background:#ffc; }
+    nav a { margin:10px 15px; text-decoration:none; color:#333; font-weight:bold; }
+    section { padding:20px; margin:20px auto; max-width:900px; background:#fff; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1); }
+    h2 { color:#ff9900; }
+    ul { list-style:none; padding:0; }
+    li { margin-bottom:10px; }
+    input, textarea, select, button { display:block; width:100%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
+    button { background:#ff9900; color:white; font-weight:bold; border:none; cursor:pointer; }
+    button:hover { background:#ff7700; }
+    .language-buttons { text-align:right; margin:10px 20px; }
+    .language-buttons button { width:auto; display:inline-block; margin-left:5px; }
+    .success-message { display:none; color:green; font-weight:bold; }
+    /* Confetti effect */
+    .confetti { position:fixed; top:0; left:0; width:100%; height:0; pointer-events:none; z-index:9999; overflow:visible; }
+    .confetti-piece { position:absolute; width:10px; height:10px; background:red; opacity:0.7; animation:fall 3s linear forwards; }
+    @keyframes fall { 0% {transform:translateY(0);} 100% {transform:translateY(500px);opacity:0;} }
   </style>
 </head>
 <body>
-  <header>
-    Lemmikuhoidja Carmen
-    <div class="paw-header">
-      <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="kassikäpp">
-    </div>
-  </header>
 
-  <nav>
-    <a onclick="showSection('avaleht')">Avaleht</a>
-    <a onclick="showSection('teenused')">Teenused ja hinnakiri</a>
-    <a onclick="showSection('kontakt')">Kontakt</a>
-    <a onclick="showSection('broneeri')">Broneeri</a>
-    <a onclick="showSection('kkk')">KKK</a>
-    <a onclick="showSection('tagasiside')">Tagasiside</a>
-  </nav>
+<header>
+  <h1 data-et="Lemmikuhoidja Carmen" data-en="Pet Care by Carmen">Lemmikuhoidja Carmen</h1>
+  <div class="language-buttons">
+    <button onclick="setLanguage('et')">ET</button>
+    <button onclick="setLanguage('en')">EN</button>
+  </div>
+</header>
 
-  <section id="avaleht" class="active">
-    <h2>Hei, olen Carmen!</h2>
-    <p>Olen loomasõber, kes on juba lapsest saati tundnud erilist sidet loomadega. Minu jaoks on loomade eest hoolitsemine südameasi, mitte lihtsalt töö. Kui vajad usaldusväärset inimest, kes hoolitseks sinu karvase või soomuselise sõbra eest, siis oled just õiges kohas!</p>
-  </section>
+<nav>
+  <a href="#about" data-et="Tutvustus" data-en="About">Tutvustus</a>
+  <a href="#services" data-et="Teenused" data-en="Services">Teenused</a>
+  <a href="#contact" data-et="Kontakt" data-en="Contact">Kontakt</a>
+  <a href="#faq" data-et="KKK" data-en="FAQ">KKK</a>
+  <a href="#feedback" data-et="Tagasiside" data-en="Feedback">Tagasiside</a>
+</nav>
 
-  <section id="teenused">
-    <h2>Teenused ja hinnakiri</h2>
-    <table>
-      <tr>
-        <th>Teenuse liik</th>
-        <th>Hind</th>
-        <th>Lisainfo</th>
-        <tr>
-  <td data-label="Teenuse liik">Lemmikuhoid (kassid, koerad, närilised, maod)</td>
-  <td data-label="Hind">20 € / päev<br>25 € / ööpäev</td>
-  <td data-label="Lisainfo">Harjumaa (Tallinn, Haabersti, Viimsi)<br>Kaugemal lisandub 5 € sõidukulu</td>
-</tr>
-        <td>Lemmikuhoid (kassid, koerad, närilised, maod)</td>
-        <td>20 € / päev<br>25 € / ööpäev</td>
-        <td>Harjumaa (Tallinn, Haabersti, Viimsi)<br>Kaugemal lisandub 5 € sõidukulu</td>
-      </tr>
-    </table>
-  </section>
+<section id="about">
+  <h2 data-et="Tutvustus" data-en="About">Tutvustus</h2>
+  <p data-et="Olen loomasõber, pakun hoidu nii koertele kui ka kassidele. Teretulnud on ka pisemad ja eksootilised loomad. Kui vajad inimest, kes hoolitseks sinu lemmiku eest armastusega, siis oled just õiges kohas."
+     data-en="I am an animal lover, offering care for dogs and cats. Small and exotic pets are also welcome. If you need someone to care for your pet with love, you are in the right place.">
+    Olen loomasõber, pakun hoidu nii koertele kui ka kassidele. Teretulnud on ka pisemad ja eksootilised loomad. Kui vajad inimest, kes hoolitseks sinu lemmiku eest armastusega, siis oled just õiges kohas.
+  </p>
+</section>
 
-  <section id="kontakt">
-    <h2>Kontakt</h2>
-    <p>Email: <a href="mailto:cadementjev@gmail.com">cadementjev@gmail.com</a><br>
-    Telefon: <a href="tel:5544309">5544309</a></p>
-    <button onclick="showSection('broneeri')">Võta ühendust</button>
-  </section>
+<section id="services">
+  <h2 data-et="Teenused ja hinnad" data-en="Services and Prices">Teenused ja hinnad</h2>
+  <ul>
+    <li data-et="Tunnihind hoiu eest – 10 €" data-en="Hourly care – 10 €">Tunnihind hoiu eest – 10 €</li>
+    <li data-et="Päevahoid – 25 €" data-en="Day care – 25 €">Päevahoid – 25 €</li>
+    <li data-et="Ööpäevane hoid – 30 €" data-en="Overnight care (24h) – 30 €">Ööpäevane hoid – 30 €</li>
+  </ul>
+</section>
 
-  <section id="broneeri">
-    <h2>Broneeri aeg</h2>
-    <form action="https://formsubmit.co/cadementjev@gmail.com" method="POST">
-      <input type="text" name="nimi" placeholder="Sinu nimi" required><br>
-      <input type="text" name="kontakt" placeholder="Sinu kontakt (telefon või e-post)" required><br>
-      <input type="text" name="lemmik" placeholder="Keda hoian" required><br>
-      <input type="text" name="kuupäevad" placeholder="Soovitud kuupäev(ad)" required><br>
-      <textarea name="sõnum" rows="4" placeholder="Lisainfo..."></textarea><br>
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://carmendem.github.io/Lemmikuhoidja/tänan.html">
-      <button type="submit" class="käpp"></button>
-    </form>
-  </section>
+<section id="contact">
+  <h2 data-et="Kontakt" data-en="Contact">Kontakt</h2>
+  <p data-et="Email" data-en="Email">Email: <a href="mailto:cadementjev@gmail.com">cadementjev@gmail.com</a></p>
+  <p data-et="Telefon" data-en="Phone">Telefon: +372 5544309</p>
 
-  <section id="kkk">
-    <h2>Korduma kippuvad küsimused</h2>
-    <p><strong>Kas sa tuled kliendi koju?</strong><br>Jah, kõik hoidmised toimuvad looma enda kodus.</p>
-    <p><strong>Kas võtad ka lühiajalisi hoidmisi?</strong><br>Jah, ka ühepäevased hoidmised on võimalikud.</p>
-    <p><strong>Kas tegeled ka eksootiliste loomadega?</strong><br>Võta ühendust ja arutame koos läbi!</p>
-  </section>
+  <h3 data-et="Broneeri" data-en="Booking">Broneeri</h3>
+  <form id="bookingForm">
+    <input type="text" name="name" placeholder="Nimi / Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="text" name="pet" placeholder="Keda hoian / Pet" required>
+    <input type="text" name="dates" placeholder="Soovitud kuupäevad / Dates" required>
+    <textarea name="notes" placeholder="Lisainfo / Additional info (optional)"></textarea>
+    <button type="submit" data-et="Broneeri" data-en="Book">Broneeri</button>
+    <p class="success-message" data-et="Broneering õnnestus!" data-en="Booking successful!">Broneering õnnestus!</p>
+  </form>
+  <div class="confetti" id="confetti"></div>
+</section>
 
-  <section id="tagasiside">
-    <h2>Tagasiside</h2>
-    <blockquote>"Carmen oli äärmiselt hooliv ja armas meie kassi suhtes. Soovitame kindlasti!" – Kairi</blockquote>
-    <blockquote>"Broneerimine oli lihtne ja suhtlus kiire. Meie koer armus Carmenisse." – Rasmus</blockquote>
-  </section>
+<section id="faq">
+  <h2 data-et="KKK" data-en="FAQ">KKK</h2>
+  <ul>
+    <li data-et="Kas sa tuled kliendi koju? Jah, kõik hoidmised toimuvad looma enda kodus." 
+        data-en="Do you come to the client's home? Yes, all care periods take place at the pet's own home.">Kas sa tuled kliendi koju? Jah, kõik hoidmised toimuvad looma enda kodus.</li>
+    <li data-et="Kas võtad ka lühiajalisi hoidmisi? Jah, ka ühepäevased hoidmised on võimalikud." 
+        data-en="Do you accept short-term care? Yes, even one-day care is possible.">Kas võtad ka lühiajalisi hoidmisi? Jah, ka ühepäevased hoidmised on võimalikud.</li>
+    <li data-et="Kas tegeled ka eksootiliste loomadega? Võta ühendust ja arutame koos läbi." 
+        data-en="Do you also care for exotic pets? Contact me and we will discuss it together.">Kas tegeled ka eksootiliste loomadega? Võta ühendust ja arutame koos läbi.</li>
+    <li data-et="Kuidas me saame kindlad olla hoidjas? Me teeme lepingu nii, et mõlemad pooled saavad kindlad olla." 
+        data-en="How can we be sure about the caretaker? We create a contract so that both parties feel secure.">Kuidas me saame kindlad olla hoidjas? Me teeme lepingu nii, et mõlemad pooled saavad kindlad olla.</li>
+  </ul>
+</section>
 
-  <script>
-    function showSection(id) {
-      document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-    }
-  </script>
+<section id="feedback">
+  <h2 data-et="Tagasiside" data-en="Feedback">Tagasiside</h2>
+  <p><strong>Kairi:</strong> <span data-et="Soovitame hoidjat, oli väga hooliv ja armas meie kassi suhtes" data-en="We recommend Carmen – very caring and kind to our cat.">Soovitame hoidjat, oli väga hooliv ja armas meie kassi suhtes</span></p>
+  <p><strong>Rasmus:</strong> <span data-et="Meie koer oli väga lähedane Carmeniga, kindlasti soovitame!" data-en="Our dog was very attached to Carmen – we definitely recommend!">Meie koer oli väga lähedane Carmeniga, kindlasti soovitame!</span></p>
+  <p><strong>Ameera ja Richard:</strong> <span data-et="Meie koer oli armastusega hoitud ja me oleme väga tänulikud. Kui läheme uuesti reisile, siis Carmen on kindlasti uuesti meie koera hoidja." data-en="Our dog was cared for with love and we are very grateful. Next time we travel, Carmen will definitely be our dog’s caretaker again.">Meie koer oli armastusega hoitud ja me oleme väga tänulikud. Kui läheme uuesti reisile, siis Carmen on kindlasti uuesti meie koera hoidja.</span></p>
+  <p><strong>Kristina:</strong> <span data-et="Oleme väga rahul hoiuga, saime reisil rahulikult olla, kuna teadsime, et meie kass ja koer on kindlates kätes. Kindlasti võtame uuesti ühendust." data-en="We were very satisfied with the care. We could travel calmly knowing our cat and dog were in safe hands. We will definitely contact again.">Oleme väga rahul hoiuga, saime reisil rahulikult olla, kuna teadsime, et meie kass ja koer on kindlates kätes. Kindlasti võtame uuesti ühendust.</span></p>
+  <p><strong>Saale:</strong> <span data-et="Mu koer oli armastusega hoitud ja sain südamerahuga olla puhkusel. Ta tegi selle meile võimalikuks. Uuesti reisile minnes võtan kindlasti uuesti ühendust." data-en="My dog was cared for with love, and I could relax during my vacation. Carmen made it possible. Next time we travel, I will definitely contact her again.">Mu koer oli armastusega hoitud ja sain südamerahuga olla puhkusel. Ta tegi selle meile võimalikuks. Uuesti reisile minnes võtan kindlasti uuesti ühendust.</span></p>
+</section>
+
+<script>
+// Keele vahetus
+function setLanguage(lang) {
+  document.querySelectorAll("[data-et]").forEach(el => {
+    el.textContent = el.getAttribute("data-" + lang);
+  });
+}
+
+// Broneeringu vorm ja konfetti efekt
+document.getElementById("bookingForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  // Näita õnnestus
+  const successMsg = document.querySelector(".success-message");
+  successMsg.style.display = "block";
+  // Konfeti efekt
+  const confettiContainer = document.getElementById("confetti");
+  for(let i=0;i<100;i++){
+    let div = document.createElement("div");
+    div.classList.add("confetti-piece");
+    div.style.background = ['#ff0000','#00ff00','#0000ff','#ff9900','#ff00ff'][Math.floor(Math.random()*5)];
+    div.style.left = Math.random()*window.innerWidth + 'px';
+    confettiContainer.appendChild(div);
+    setTimeout(()=>{div.remove();},3000);
+  }
+  // Reset form
+  this.reset();
+});
+</script>
+
 </body>
-  </html>
+                                           </html>
