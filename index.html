@@ -1,135 +1,165 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carmikuhoid – Lemmikuhoidja Carmen</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f8f8f8; color:#333; }
-    header { background:#ffcc00; padding:30px; text-align:center; }
-    header h1 { margin:0; font-size:2em; }
-    nav { display:flex; justify-content:center; background:#ffc; }
-    nav a { margin:10px 15px; text-decoration:none; color:#333; font-weight:bold; }
-    section { padding:20px; margin:20px auto; max-width:900px; background:#fff; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1); }
-    h2 { color:#ff9900; }
-    ul { list-style:none; padding:0; }
-    li { margin-bottom:10px; }
-    input, textarea, select, button { display:block; width:100%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc; }
-    button { background:#ff9900; color:white; font-weight:bold; border:none; cursor:pointer; }
-    button:hover { background:#ff7700; }
-    .language-buttons { text-align:right; margin:10px 20px; }
-    .language-buttons button { width:auto; display:inline-block; margin-left:5px; }
-    .success-message { display:none; color:green; font-weight:bold; }
-    /* Confetti effect */
-    .confetti { position:fixed; top:0; left:0; width:100%; height:0; pointer-events:none; z-index:9999; overflow:visible; }
-    .confetti-piece { position:absolute; width:10px; height:10px; background:red; opacity:0.7; animation:fall 3s linear forwards; }
-    @keyframes fall { 0% {transform:translateY(0);} 100% {transform:translateY(500px);opacity:0;} }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carmikuhoid</title>
+<style>
+body { font-family: 'Arial', sans-serif; margin:0; padding:0; background:#fdf6f0; color:#333;}
+header { background:#d6c6b9; padding:20px; text-align:center;}
+header h1 { margin:0; }
+nav { display:flex; justify-content:center; background:#f5e9e0; padding:10px 0;}
+nav button { margin:0 10px; padding:10px 15px; cursor:pointer; border:none; border-radius:5px; background:#a88c74; color:white; font-weight:bold;}
+nav button:hover { background:#8b6f5c;}
+section { display:none; padding:20px; max-width:900px; margin:20px auto; background:white; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1);}
+h2 { color:#555; }
+input, textarea, select, button { display:block; width:100%; padding:10px; margin:10px 0; border-radius:5px; border:1px solid #ccc;}
+button.submit { background:#a88c74; color:white; font-weight:bold; cursor:pointer;}
+button.submit:hover { background:#8b6f5c;}
+.language-buttons { text-align:right; margin:10px 20px;}
+.success-message { display:none; color:green; font-weight:bold;}
+.confetti { position:fixed; top:0; left:0; width:100%; height:0; pointer-events:none; z-index:9999; overflow:visible;}
+.confetti-piece { position:absolute; width:10px; height:10px; opacity:0.7; animation:fall 3s linear forwards;}
+@keyframes fall {0%{transform:translateY(0);}100%{transform:translateY(500px);opacity:0;}}
+</style>
 </head>
 <body>
 
 <header>
-  <h1 data-et="Lemmikuhoidja Carmen" data-en="Pet Care by Carmen">Lemmikuhoidja Carmen</h1>
-  <div class="language-buttons">
-    <button onclick="setLanguage('et')">ET</button>
-    <button onclick="setLanguage('en')">EN</button>
-  </div>
+<h1 data-et="Lemmikuhoidja Carmen" data-en="Pet Care by Carmen">Lemmikuhoidja Carmen</h1>
+<div class="language-buttons">
+<button onclick="setLanguage('et')">ET</button>
+<button onclick="setLanguage('en')">EN</button>
+</div>
 </header>
 
 <nav>
-  <a href="#about" data-et="Tutvustus" data-en="About">Tutvustus</a>
-  <a href="#services" data-et="Teenused" data-en="Services">Teenused</a>
-  <a href="#contact" data-et="Kontakt" data-en="Contact">Kontakt</a>
-  <a href="#faq" data-et="KKK" data-en="FAQ">KKK</a>
-  <a href="#feedback" data-et="Tagasiside" data-en="Feedback">Tagasiside</a>
+<button onclick="showSection('home')" data-et="Avaleht" data-en="Home">Avaleht</button>
+<button onclick="showSection('services')" data-et="Hinnad" data-en="Prices">Hinnad</button>
+<button onclick="showSection('booking')" data-et="Broneering" data-en="Booking">Broneering</button>
+<button onclick="showSection('faq')" data-et="KKK" data-en="FAQ">KKK</button>
+<button onclick="showSection('feedback')" data-et="Tagasiside" data-en="Feedback">Tagasiside</button>
 </nav>
 
-<section id="about">
-  <h2 data-et="Tutvustus" data-en="About">Tutvustus</h2>
-  <p data-et="Olen loomasõber, pakun hoidu nii koertele kui ka kassidele. Teretulnud on ka pisemad ja eksootilised loomad. Kui vajad inimest, kes hoolitseks sinu lemmiku eest armastusega, siis oled just õiges kohas."
-     data-en="I am an animal lover, offering care for dogs and cats. Small and exotic pets are also welcome. If you need someone to care for your pet with love, you are in the right place.">
-    Olen loomasõber, pakun hoidu nii koertele kui ka kassidele. Teretulnud on ka pisemad ja eksootilised loomad. Kui vajad inimest, kes hoolitseks sinu lemmiku eest armastusega, siis oled just õiges kohas.
-  </p>
+<!-- Avaleht -->
+<section id="home">
+<h2 data-et="Tutvustus" data-en="About">Tutvustus</h2>
+<p data-et="Olen loomasõber, pakun hoidu koertele, kassidele ja ka väikestele eksootilistele lemmikutele. Kui vajad kedagi, kes hoolitseks sinu lemmiku eest armastusega, oled õiges kohas." 
+data-en="I am an animal lover, offering care for dogs, cats, and small exotic pets. If you need someone to care for your pet with love, you are in the right place.">
+Olen loomasõber, pakun hoidu koertele, kassidele ja ka väikestele eksootilistele lemmikutele. Kui vajad kedagi, kes hoolitseks sinu lemmiku eest armastusega, oled õiges kohas.
+</p>
+<h2 data-et="Kontakt" data-en="Contact">Kontakt</h2>
+<p data-et="Email: cadementjev@gmail.com" data-en="Email: cadementjev@gmail.com">Email: cadementjev@gmail.com</p>
+<p data-et="Telefon: +372 5544309" data-en="Phone: +372 5544309">Telefon: +372 5544309</p>
 </section>
 
+<!-- Teenused / hinnad -->
 <section id="services">
-  <h2 data-et="Teenused ja hinnad" data-en="Services and Prices">Teenused ja hinnad</h2>
-  <ul>
-    <li data-et="Tunnihind hoiu eest – 10 €" data-en="Hourly care – 10 €">Tunnihind hoiu eest – 10 €</li>
-    <li data-et="Päevahoid – 25 €" data-en="Day care – 25 €">Päevahoid – 25 €</li>
-    <li data-et="Ööpäevane hoid – 30 €" data-en="Overnight care (24h) – 30 €">Ööpäevane hoid – 30 €</li>
-  </ul>
+<h2 data-et="Teenused ja hinnad" data-en="Services & Prices">Teenused ja hinnad</h2>
+<ul>
+<li data-et="Tunnihoid (kuni 3h) – 10 €" data-en="Hourly care (up to 3h) – 10 €">Tunnihoid (kuni 3h) – 10 €</li>
+<li data-et="Päevahoid – 25 €" data-en="Day care – 25 €">Päevahoid – 25 €</li>
+<li data-et="Ööpäevane hoid – 30 €" data-en="Overnight care – 30 €">Ööpäevane hoid – 30 €</li>
+</ul>
 </section>
 
-<section id="contact">
-  <h2 data-et="Kontakt" data-en="Contact">Kontakt</h2>
-  <p data-et="Email" data-en="Email">Email: <a href="mailto:cadementjev@gmail.com">cadementjev@gmail.com</a></p>
-  <p data-et="Telefon" data-en="Phone">Telefon: +372 5544309</p>
-
-  <h3 data-et="Broneeri" data-en="Booking">Broneeri</h3>
-  <form id="bookingForm">
-    <input type="text" name="name" placeholder="Nimi / Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="text" name="pet" placeholder="Keda hoian / Pet" required>
-    <input type="text" name="dates" placeholder="Soovitud kuupäevad / Dates" required>
-    <textarea name="notes" placeholder="Lisainfo / Additional info (optional)"></textarea>
-    <button type="submit" data-et="Broneeri" data-en="Book">Broneeri</button>
-    <p class="success-message" data-et="Broneering õnnestus!" data-en="Booking successful!">Broneering õnnestus!</p>
-  </form>
-  <div class="confetti" id="confetti"></div>
+<!-- Broneering -->
+<section id="booking">
+<h2 data-et="Broneeri aeg" data-en="Book a session">Broneeri aeg</h2>
+<form id="bookingForm">
+<input type="text" name="name" placeholder="Nimi / Name" required>
+<input type="email" name="contact" placeholder="Email / Kontakt" required>
+<input type="text" name="pet" placeholder="Lemmikloom / Pet" required>
+<input type="text" name="dates" placeholder="Soovitud kuupäevad / Desired dates" required>
+<textarea name="info" placeholder="Lisainfo / Additional info (optional)"></textarea>
+<button type="submit" class="submit" data-et="Broneeri" data-en="Book">Broneeri</button>
+<p class="success-message" data-et="Broneering edukalt saadetud!" data-en="Booking successful!">Broneering edukalt saadetud!</p>
+</form>
+<div id="confetti" class="confetti"></div>
 </section>
 
+<!-- KKK -->
 <section id="faq">
-  <h2 data-et="KKK" data-en="FAQ">KKK</h2>
-  <ul>
-    <li data-et="Kas sa tuled kliendi koju? Jah, kõik hoidmised toimuvad looma enda kodus." 
-        data-en="Do you come to the client's home? Yes, all care periods take place at the pet's own home.">Kas sa tuled kliendi koju? Jah, kõik hoidmised toimuvad looma enda kodus.</li>
-    <li data-et="Kas võtad ka lühiajalisi hoidmisi? Jah, ka ühepäevased hoidmised on võimalikud." 
-        data-en="Do you accept short-term care? Yes, even one-day care is possible.">Kas võtad ka lühiajalisi hoidmisi? Jah, ka ühepäevased hoidmised on võimalikud.</li>
-    <li data-et="Kas tegeled ka eksootiliste loomadega? Võta ühendust ja arutame koos läbi." 
-        data-en="Do you also care for exotic pets? Contact me and we will discuss it together.">Kas tegeled ka eksootiliste loomadega? Võta ühendust ja arutame koos läbi.</li>
-    <li data-et="Kuidas me saame kindlad olla hoidjas? Me teeme lepingu nii, et mõlemad pooled saavad kindlad olla." 
-        data-en="How can we be sure about the caretaker? We create a contract so that both parties feel secure.">Kuidas me saame kindlad olla hoidjas? Me teeme lepingu nii, et mõlemad pooled saavad kindlad olla.</li>
-  </ul>
+<h2 data-et="Korduma kippuvad küsimused" data-en="FAQ">Korduma kippuvad küsimused</h2>
+<ul>
+<li data-et="Kas sa tuled kliendi koju? Jah, kõik hoidmised toimuvad looma kodus." data-en="Do you visit client's home? Yes, all care takes place at the pet's home.">Kas sa tuled kliendi koju? Jah, kõik hoidmised toimuvad looma kodus.</li>
+<li data-et="Kas võtad ka lühiajalisi hoidmisi? Jah, ka ühepäevased hoidmised on võimalikud." data-en="Do you accept short-term care? Yes, one-day care is also possible.">Kas võtad ka lühiajalisi hoidmisi? Jah, ka ühepäevased hoidmised on võimalikud.</li>
+<li data-et="Kas tegeled ka eksootiliste loomadega? Võta ühendust ja arutame läbi." data-en="Do you care for exotic pets? Contact me and we'll discuss.">Kas tegeled ka eksootiliste loomadega? Võta ühendust ja arutame läbi.</li>
+<li data-et="Kuidas me saame kindlad olla hoidjas? Me teeme lepingu, et mõlemad pooled oleksid kindlad." data-en="How can we be sure about the caretaker? We make an agreement so both sides feel secure.">Kuidas me saame kindlad olla hoidjas? Me teeme lepingu, et mõlemad pooled oleksid kindlad.</li>
+</ul>
 </section>
 
+<!-- Tagasiside -->
 <section id="feedback">
-  <h2 data-et="Tagasiside" data-en="Feedback">Tagasiside</h2>
-  <p><strong>Kairi:</strong> <span data-et="Soovitame hoidjat, oli väga hooliv ja armas meie kassi suhtes" data-en="We recommend Carmen – very caring and kind to our cat.">Soovitame hoidjat, oli väga hooliv ja armas meie kassi suhtes</span></p>
-  <p><strong>Rasmus:</strong> <span data-et="Meie koer oli väga lähedane Carmeniga, kindlasti soovitame!" data-en="Our dog was very attached to Carmen – we definitely recommend!">Meie koer oli väga lähedane Carmeniga, kindlasti soovitame!</span></p>
-  <p><strong>Ameera ja Richard:</strong> <span data-et="Meie koer oli armastusega hoitud ja me oleme väga tänulikud. Kui läheme uuesti reisile, siis Carmen on kindlasti uuesti meie koera hoidja." data-en="Our dog was cared for with love and we are very grateful. Next time we travel, Carmen will definitely be our dog’s caretaker again.">Meie koer oli armastusega hoitud ja me oleme väga tänulikud. Kui läheme uuesti reisile, siis Carmen on kindlasti uuesti meie koera hoidja.</span></p>
-  <p><strong>Kristina:</strong> <span data-et="Oleme väga rahul hoiuga, saime reisil rahulikult olla, kuna teadsime, et meie kass ja koer on kindlates kätes. Kindlasti võtame uuesti ühendust." data-en="We were very satisfied with the care. We could travel calmly knowing our cat and dog were in safe hands. We will definitely contact again.">Oleme väga rahul hoiuga, saime reisil rahulikult olla, kuna teadsime, et meie kass ja koer on kindlates kätes. Kindlasti võtame uuesti ühendust.</span></p>
-  <p><strong>Saale:</strong> <span data-et="Mu koer oli armastusega hoitud ja sain südamerahuga olla puhkusel. Ta tegi selle meile võimalikuks. Uuesti reisile minnes võtan kindlasti uuesti ühendust." data-en="My dog was cared for with love, and I could relax during my vacation. Carmen made it possible. Next time we travel, I will definitely contact her again.">Mu koer oli armastusega hoitud ja sain südamerahuga olla puhkusel. Ta tegi selle meile võimalikuks. Uuesti reisile minnes võtan kindlasti uuesti ühendust.</span></p>
+<h2 data-et="Tagasiside" data-en="Feedback">Tagasiside</h2>
+<div id="feedbackList">
+<p><strong>Kairi:</strong> Soovitame hoidjat, oli väga hooliv ja armas meie kassi suhtes.</p>
+<p><strong>Rasmus:</strong> Meie koer oli väga lähedane Carmeniga, kindlasti soovitame!</p>
+<p><strong>Ameera ja Richard:</strong> Meie koer oli armastusega hoitud ja me oleme väga tänulikud, kui läheme uuesti reisile siis Carmen on kindlasti uuesti meie koera hoidja.</p>
+<p><strong>Kristina:</strong> Oleme väga rahul hoiuga, saime reisil rahulikult olla kuna teadsime et meie kass ja koer on kindlates kätes. Kindlasti võtame uuesti ühendust kui läheb hoidjat vaja.</p>
+<p><strong>Saale:</strong> Mu koer oli armastusega hoitud ja sain südamerahuga olla puhkusel, ta tegi selle meile võimalikuks. Uuesti reisile minnes võtan kindlasti uuesti ühendust.</p>
+</div>
+<h3 data-et="Lisa oma tagasiside" data-en="Add your feedback">Lisa oma tagasiside</h3>
+<form id="feedbackForm">
+<input type="text" name="name" placeholder="Nimi / Name" required>
+<textarea name="comment" placeholder="Sinu tagasiside / Your feedback" required></textarea>
+<button type="submit" class="submit" data-et="Postita" data-en="Post">Postita</button>
+</form>
 </section>
 
 <script>
-// Keele vahetus
-function setLanguage(lang) {
-  document.querySelectorAll("[data-et]").forEach(el => {
+// Näita ainult valitud sektsiooni
+function showSection(id){
+  document.querySelectorAll('section').forEach(sec=>sec.style.display='none');
+  document.getElementById(id).style.display='block';
+}
+
+// Keelevahetus
+function setLanguage(lang){
+  document.querySelectorAll("[data-et]").forEach(el=>{
     el.textContent = el.getAttribute("data-" + lang);
   });
 }
 
-// Broneeringu vorm ja konfetti efekt
-document.getElementById("bookingForm").addEventListener("submit", function(e){
-  e.preventDefault();
-  // Näita õnnestus
-  const successMsg = document.querySelector(".success-message");
-  successMsg.style.display = "block";
-  // Konfeti efekt
-  const confettiContainer = document.getElementById("confetti");
-  for(let i=0;i<100;i++){
-    let div = document.createElement("div");
-    div.classList.add("confetti-piece");
-    div.style.background = ['#ff0000','#00ff00','#0000ff','#ff9900','#ff00ff'][Math.floor(Math.random()*5)];
-    div.style.left = Math.random()*window.innerWidth + 'px';
-    confettiContainer.appendChild(div);
-    setTimeout(()=>{div.remove();},3000);
-  }
-  // Reset form
-  this.reset();
-});
+// Broneering + konfetti
+const bookingForm = document.getElementById("bookingForm");
+if(bookingForm){
+  bookingForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const successMsg = this.querySelector(".success-message");
+    successMsg.style.display = "block";
+
+    const confettiContainer = document.getElementById("confetti");
+    for(let i=0;i<100;i++){
+      let div=document.createElement("div");
+      div.classList.add("confetti-piece");
+      div.style.background=['#ff7f50','#ffd700','#90ee90','#87cefa','#ff69b4'][Math.floor(Math.random()*5)];
+      div.style.left=Math.random()*window.innerWidth+'px';
+      confettiContainer.appendChild(div);
+      setTimeout(()=>{div.remove();},3000);
+    }
+    this.reset();
+  });
+}
+
+// Tagasiside postitus
+const feedbackForm = document.getElementById("feedbackForm");
+if(feedbackForm){
+  feedbackForm.addEventListener("submit", function(e){
+    e.preventDefault();
+    const container = document.getElementById("feedbackList");
+    const name = this.name.value;
+    const text = this.comment.value;
+    const p = document.createElement("p");
+    p.innerHTML = `<strong>${name}:</strong> ${text}`;
+    container.appendChild(p);
+    this.reset();
+  });
+}
+
+// Ava esialgu Avaleht
+showSection('home');
 </script>
 
 </body>
-                                           </html>
+</html>
